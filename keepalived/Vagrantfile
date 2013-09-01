@@ -1,0 +1,32 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.box = 'precise64-20130827'
+  config.vm.box_url = 'http://cloud-images.ubuntu.com/vagrant/precise/20130827/precise-server-cloudimg-amd64-vagrant-disk1.box'
+
+  config.vm.define :ha1 do |node|
+    node.vm.hostname = "ha1"
+    node.vm.network :private_network, ip: "10.11.0.10"
+    node.vm.provision :shell, :path => "provision-ha1.sh"
+  end
+ 
+  config.vm.define :ha2 do |node|
+    node.vm.hostname = "ha2"
+    node.vm.network :private_network, ip: "10.11.0.11"
+    node.vm.provision :shell, :path => "provision-ha2.sh"
+  end
+  
+  config.vm.define :app1 do |node|
+    node.vm.hostname = "app1"
+    node.vm.network :private_network, ip: "10.11.2.10"
+    node.vm.provision :shell, :path => "provision-app1.sh"
+  end
+  
+  config.vm.define :app2 do |node|
+    node.vm.hostname = "app2"
+    node.vm.network :private_network, ip: "10.11.2.11"
+    node.vm.provision :shell, :path => "provision-app2.sh"
+  end
+  
+  config.vbguest.auto_update = false
+  
+end

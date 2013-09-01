@@ -1,0 +1,35 @@
+# You might want to install https://github.com/cogitatio/vagrant-hostsupdater
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = 'precise64-20130827'
+  config.vm.box_url = 'http://cloud-images.ubuntu.com/vagrant/precise/20130827/precise-server-cloudimg-amd64-vagrant-disk1.box'
+
+  config.vm.define :admin do |node|
+    node.vm.hostname = 'admin.mikaelhg.dev'
+    node.vm.network :private_network, ip: '10.11.0.10'
+    node.vm.provision :shell, :path => 'provision-admin.sh'
+  end
+
+  # CI and apps
+  config.vm.define :cia do |node|
+    node.vm.hostname = 'cia.mikaelhg.dev'
+    node.vm.network :private_network, ip: '10.11.0.11'
+    node.vm.provision 'puppet_server', :puppet_server = '10.11.0.10'
+  end
+ 
+  config.vm.define :app1 do |node|
+    node.vm.hostname = 'app1.mikaelhg.dev'
+    node.vm.network :private_network, ip: "10.11.0.100"
+    node.vm.provision 'puppet_server', :puppet_server = '10.11.0.10'
+  end
+  
+  config.vm.define :app2 do |node|
+    node.vm.hostname = 'app2.mikaelhg.dev'
+    node.vm.network :private_network, ip: '10.11.0.101'
+    node.vm.provision 'puppet_server', :puppet_server = '10.11.0.10'
+  end
+  
+  config.vbguest.auto_update = false
+  
+end
