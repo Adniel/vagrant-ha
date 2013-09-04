@@ -5,6 +5,16 @@ the most important - your culture. That's something nobody but you can create.
 
 ## How to get started?
 
+1. Install VirtualBox and Vagrant
+
+2. ``vagrant plugin install vagrant-hostsupdater && vagrant plugin install vagrant-hosts``
+
+3. ``vagrant up admin cia``
+
+4. Browse to http://10.11.0.10:4440/ (admin/admin)
+
+Currently all that's visible is the RunDeck console.
+
 ## What does this project currently contain?
 
 1. Puppet Master
