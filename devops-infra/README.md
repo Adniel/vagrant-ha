@@ -25,15 +25,17 @@ Currently all that's visible is the RunDeck console.
 
 3. Centralized log tracking with ``fluentd``, Kibana and ElasticSearch
 
-4. Jenkins CI
+4. Centralized metrics collection with ``collectd`` or Red Hat RHQ
 
-5. Continuous Delivery pipeline (and deployment) with Jenkins
+5. Jenkins CI
 
-6. Your private ``DEB``-file application repository with ``reprepro``
+6. Continuous Delivery pipeline (and deployment) with Jenkins
 
-7. GitLab.org and GitLab-CI
+7. Your private ``DEB``-file application repository with ``reprepro``
 
-8. ForgeRock identity stack http://forgerock.com/what-we-offer/open-identity-stack/
+8. GitLab.org and GitLab-CI
+
+9. ForgeRock identity stack http://forgerock.com/what-we-offer/open-identity-stack/
 
 ## What's on the related application development roadmap?
 
