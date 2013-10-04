@@ -37,6 +37,8 @@ Currently all that's visible is the RunDeck console.
 
 9. ForgeRock identity stack http://forgerock.com/what-we-offer/open-identity-stack/
 
+10. a NTP server, and "internal" NTP client configuration
+
 ## What's on the related application development roadmap?
 
 A. CI application packaging into ``DEB`` with ``fpm``
